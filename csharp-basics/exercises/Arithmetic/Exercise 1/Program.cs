@@ -18,8 +18,8 @@ namespace Exercise_1
 
         public static bool IntegerAnalyzer(int a, int b)
         {
-            return (a == 15 || b == 15 || a + b == 15 ||
-                    a - b == 15) || b-a == 15;
+            return a == 15 || b == 15 || a + b == 15 ||
+                    a - b == 15 || b - a == 15;
         }
     }
 }
