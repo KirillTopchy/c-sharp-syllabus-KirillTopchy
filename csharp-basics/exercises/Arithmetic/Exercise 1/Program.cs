@@ -13,7 +13,7 @@ namespace Exercise_1
 
             var finalResult = IntegerAnalyzer(firstInt, secondInt);
 
-            Console.WriteLine(finalResult ? "True" : "False");
+            Console.WriteLine(finalResult);
         }
 
         public static bool IntegerAnalyzer(int a, int b)
