@@ -13,7 +13,6 @@ namespace CalculateArea
             }
             var area = Math.Round((Math.PI * (double) radius * (double) radius),2);
             return area;
-            throw new NotImplementedException();
         }
 
         public static double AreaOfRectangle(decimal length, decimal width)
@@ -25,7 +24,6 @@ namespace CalculateArea
             }
             var area = Math.Round((length * width),2);
             return (double) area;
-            throw new NotImplementedException();
         }
 
         public static double AreaOfTriangle(decimal ground, decimal height)
@@ -37,8 +35,6 @@ namespace CalculateArea
             }
             var area = Math.Round((double) (ground * height * (decimal) 0.5),2);
             return area;
-            
-            throw new NotImplementedException();
         }
     }
 }
