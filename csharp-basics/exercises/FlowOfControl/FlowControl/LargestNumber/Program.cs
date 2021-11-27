@@ -29,6 +29,7 @@ namespace LargestNumber
             }
             Console.ReadKey();
         }
+
         public static string DisplaySuffix(int num)
         {
             var number = num.ToString();
