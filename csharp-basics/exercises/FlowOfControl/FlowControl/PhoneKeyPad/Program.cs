@@ -11,6 +11,7 @@ namespace PhoneKeyPad
             var inputMessage = Console.ReadLine()?.ToUpper().ToCharArray();
             MessageToNumber(inputMessage);
         }
+
         public static void MessageToNumber(char[] input)
         {
             string result = "";
@@ -100,7 +101,7 @@ namespace PhoneKeyPad
                 {
                     result += "88";
                 }
-                else if (input[i].Equals('U'))
+                else if (input[i].Equals('V'))
                 {
                     result += "888";
                 }
