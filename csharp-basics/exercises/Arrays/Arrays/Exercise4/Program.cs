@@ -18,13 +18,17 @@ namespace Exercise4
                 1456, 2265, 1457, 2456
             };
 
-            /*
-            fixme - check if contains number 1245 
-            for (?) {
-                ......
-                Console.WriteLine("Contains!");
+            var position = Array.IndexOf(myArray,1245);
+
+            if (position > -1)
+            {
+                Console.WriteLine("Item found at {0} position in array", position);
             }
-            */
+            else
+            {
+                Console.WriteLine("Item not found");
+            }
+            Console.ReadKey();
         }
     }
 }
