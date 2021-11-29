@@ -25,6 +25,7 @@ namespace Exercise_6
             Console.Write("Array 2: ");
             PrintArray(secondArray);
         }
+
         public static void PrintArray(int[] array)
         {
             foreach (var element in array)
