@@ -111,85 +111,90 @@ namespace TicTacToe
         {
             // check if is winner.
             // row win
-            if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0,0] == 'X')
+            if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] == '0')
-            {
+                if (board[0, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
-            if(board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 0] == 'X')
+
+            if(board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 0] == '0')
-            {
+                if (board[1, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
-            if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 0] == 'X')
+
+            if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 0] == '0')
-            {
+                if (board[2, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
             // column win
-            if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] == 'X')
+            if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] == '0')
-            {
+                if (board[0, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
-            if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[0, 1] == 'X')
+
+            if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[0, 1] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[0, 1] == '0')
-            {
+                if (board[0, 1] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
-            if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[0, 2] == 'X')
+
+            if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[0, 2] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[0, 2] == '0')
-            {
+                if (board[0, 2] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
             // diagonal win
-            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] == 'X')
+            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] == '0')
-            {
+                if (board[0, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
-            if (board[2, 0] == board[1, 1] && board[1, 1] == board[0, 2] && board[2, 0] == 'X')
+
+            if (board[2, 0] == board[1, 1] && board[1, 1] == board[0, 2] && board[2, 0] != ' ')
             {
-                Console.WriteLine("X WON");
-                return true;
-            }
-            if (board[2, 0] == board[1, 1] && board[1, 1] == board[0, 2] && board[2, 0] == '0')
-            {
+                if (board[2, 0] == 'X')
+                {
+                    Console.WriteLine("X WON");
+                    return true;
+                }
                 Console.WriteLine("0 WON");
                 return true;
             }
