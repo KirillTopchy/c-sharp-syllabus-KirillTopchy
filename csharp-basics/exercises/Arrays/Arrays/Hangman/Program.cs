@@ -84,6 +84,7 @@ namespace Hangman
             Console.WriteLine("YOU GOT IT!");
             Console.WriteLine();
         }
+
         public static void LoseDisplay()
         {
             // displays lose screen
