@@ -12,25 +12,26 @@ namespace TicTacToe
             DisplayBoard();
 
             var turn = true;
+            var isWin = false;
 
-            while (!GameIsFinished() || IsWin() != true || IsTie() != true)
+            while (!GameIsFinished())
             {
                 Turn(turn);
                 DisplayBoard();
 
                 if (IsWin())
                 {
+                    WinMessage();
+                    isWin = true;
                     break;
                 }
-
-                if (IsTie() == false)
-                {
-                    break;
-                }
-
                 turn = !turn;
             }
 
+            if (!isWin)
+            {
+                TieMessage();
+            }
             Console.ReadKey();
         }
 
@@ -111,53 +112,41 @@ namespace TicTacToe
         {
             // check if is winner.
             // row win
-            while (true)
+            if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] != ' ')
             {
-                if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                if (board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                // column win
-                if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[0, 1] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[0, 2] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                // diagonal win
-                if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                if (board[2, 0] == board[1, 1] && board[1, 1] == board[0, 2] && board[2, 0] != ' ')
-                {
-                    WinMessage();
-                    break;
-                }
-                return false;
+                return true;
             }
-            return true;
+            if (board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 0] != ' ')
+            {
+                return true;
+            }
+            if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 0] != ' ')
+            {
+                return true;
+            }
+            // column win
+            if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] != ' ')
+            {
+                return true;
+            }
+            if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[0, 1] != ' ')
+            {
+                return true;
+            }
+            if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[0, 2] != ' ')
+            {
+                return true;
+            }
+            // diagonal win
+            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[0, 0] != ' ')
+            {
+                return true;
+            }
+            if (board[2, 0] == board[1, 1] && board[1, 1] == board[0, 2] && board[2, 0] != ' ')
+            {
+                return true;
+            }
+            return false;
         }
 
         public static bool WinMessage()
@@ -172,15 +161,9 @@ namespace TicTacToe
             return true;
         }
 
-        public static bool IsTie()
+        public static void TieMessage()
         {
-            // checks if its tie
-            if (GameIsFinished() && IsWin() == false)
-            {
-                Console.WriteLine("TIE");
-                return false;
-            }
-            return true;
+            Console.WriteLine("TIE");
         }
     }
 }
