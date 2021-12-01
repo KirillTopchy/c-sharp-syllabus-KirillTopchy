@@ -1,4 +1,7 @@
-﻿namespace Exercise3
+﻿using System;
+using System.Linq;
+
+namespace Exercise3
 {
     class Program
     {
@@ -7,18 +10,14 @@
         {
             int[] numbers = {20, 30, 25, 35, -16, 60, -100};
 
-            /*
-            fixme - calculate sum of all array elements 
-            int sum = 0;
-            for (?){
-                
-            }
-            */
+            var sum = numbers.Sum();
 
-            /*
-            fixme - calculate average value 
+            var average = Math.Round((double) sum / numbers.Length,2);
+
+            Console.WriteLine("Sum of the array elements is : " + sum);
             Console.WriteLine("Average value of the array elements is : " + average);
-            */
+            Console.ReadKey();
         }
     }
 }
+
