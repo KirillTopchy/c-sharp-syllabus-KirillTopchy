@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace NumberSquare
 {
@@ -8,10 +7,12 @@ namespace NumberSquare
         private static int _min;
         private static int _max;
         private static int _localMin;
+        private static int _inputLength;
 
         public static void Main(string[] args)
         {
             UserInput();
+            CalculateInputLength();
             PrintNumbers();
         }
 
@@ -22,6 +23,16 @@ namespace NumberSquare
             Console.Write("Enter max value: ");
             int.TryParse(Console.ReadLine(), out _max);
             _localMin += _min;
+        }
+
+        public static void CalculateInputLength()
+        {
+            string inputAsString = "";
+            for (int i = _min; i <= _max; i++)
+            {
+                inputAsString += i;
+                _inputLength = inputAsString.Length;
+            }
         }
 
         public static void PrintNumbers()
@@ -35,7 +46,7 @@ namespace NumberSquare
                 }
                 Console.Write(result);
                 var min = _localMin;
-                while (result.Length < _max)
+                while (result.Length < _inputLength)
                 {
                     result += min;
                     Console.Write(min);
