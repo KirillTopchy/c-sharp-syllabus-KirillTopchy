@@ -4,7 +4,7 @@ namespace FuelConsumptionCalculator
 {
     public class Car
     {
-        private double _startKilometers;
+        private readonly double _startKilometers;
         private double _endKilometers;
         private double _litres;
         public Car(double startOdo, double endingOdo, double liters)
