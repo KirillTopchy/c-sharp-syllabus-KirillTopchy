@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise_3
 {
     class Odometer
     {
-        private int _odometerTotalKilometers;
-        private int _singleDriveDistance;
         public int CurrentKilometer { get; set; }
 
         public int GetCurrentKilometers()
@@ -18,45 +12,39 @@ namespace Exercise_3
             return CurrentKilometer;
         }
 
-        public int GetTotalKilometers()
+        public int Drive()
         {
-            return _odometerTotalKilometers;
-        }
-
-        public int GetSingleDriveDistance()
-        {
-            return _singleDriveDistance;
-        }
-
-        public int Drive(int distance)
-        {
-            _odometerTotalKilometers += distance;
-            _singleDriveDistance = distance;
-            if (CurrentKilometer <= 999999)
+            while (FuelGauge.IsFuel())
             {
-                for (int i = 1; i <= distance; i++)
+                if (CurrentKilometer <= 999999)
                 {
-                    if (i % 10 == 0)
-                    {
-                        DecreaseFuelWhenDriving();
-                    }
-                    CurrentKilometer++;
+                    CheckMileageAndFuelLeft();
                 }
-            }
-            else
-            {
-                CurrentKilometer = 0;
-                for (int i = GetCurrentKilometers(); i < distance; i++)
+                else
                 {
-                    CurrentKilometer++;
+                    CurrentKilometer = 0;
+                    CheckMileageAndFuelLeft();
                 }
             }
             return CurrentKilometer;
         }
 
+        public void CheckMileageAndFuelLeft()
+        {
+            DecreaseFuelWhenDriving();
+            CurrentKilometer++;
+            DriveMessage();
+            FuelGauge.FuelLeftMessage();
+        }
+
         public void DecreaseFuelWhenDriving()
         {
             FuelGauge.FuelDecrease();
+        }
+
+        public void DriveMessage()
+        {
+            Console.WriteLine("ODOMETER: {0} km", GetCurrentKilometers());
         }
     }
 }
