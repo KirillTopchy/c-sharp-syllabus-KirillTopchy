@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace VideoStore
 {
-    class Program
+    class VideoStoreTest
     {
         private const int _countOfMovies = 3;
         private static VideoStore _videoStore = new VideoStore();
         private static void Main(string[] args)
         {
+
             while (true)
             {
                 Console.WriteLine("Choose the operation you want to perform ");

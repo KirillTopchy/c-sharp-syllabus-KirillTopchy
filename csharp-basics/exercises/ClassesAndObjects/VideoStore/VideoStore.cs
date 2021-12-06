@@ -5,7 +5,6 @@ namespace VideoStore
 {
     class VideoStore
     {
-
         public VideoStore()
         {
             
@@ -13,7 +12,7 @@ namespace VideoStore
 
         public void AddVideo(string title)
         {
-            
+            var video = new Video(title);
         }
         
         public void Checkout(string title)
@@ -27,6 +26,7 @@ namespace VideoStore
 
         public void TakeUsersRating(double rating, string title)
         {
+            
             
         }
 
