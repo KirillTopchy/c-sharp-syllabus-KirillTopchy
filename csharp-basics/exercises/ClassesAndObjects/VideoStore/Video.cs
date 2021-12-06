@@ -4,43 +4,54 @@ namespace VideoStore
 {
     class Video
     {
-        public string Title { get; set; }
-        public double Rating { get; set; }
-        public bool CheckedOut { get; set; }
+        private readonly string _title;
+        private double _rating;
+        private bool _checkedOut;
+        private int _ratingCount;
 
         public Video(string title)
         {
-            Title = title;
+            _title = title;
+        }
+
+        public string GetTitle()
+        {
+            return _title;
         }
 
         public void BeingCheckedOut()
         {
-            
+            _checkedOut = true;
         }
 
         public void BeingReturned()
         {
-            
+            _checkedOut = false;
         }
 
         public void ReceivingRating(double rating)
         {
-            
+            _ratingCount++;
+            _rating += rating;
         }
 
         public double AverageRating()
         {
-            return 0;
+            if (_ratingCount == 0)
+            {
+                return 0;
+            }
+            return _rating / _ratingCount;
         }
 
         public bool Available()
         {
-            return true;
+            return !_checkedOut;
         }
 
         public override string ToString()
         {
-            return $"{Title} {AverageRating()} {Available()}";
+            return $"{_title} {AverageRating()} {Available()}";
         }
     }
 }
