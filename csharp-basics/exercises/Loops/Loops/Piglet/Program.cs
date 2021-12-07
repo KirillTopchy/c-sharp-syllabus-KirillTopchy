@@ -9,15 +9,15 @@ namespace Piglet
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Piglet!");
-            RollDie();
+            RollDice();
             while (_gameLost == false && ContinueGame()) 
             {
-                RollDie();
+                RollDice();
             }
             Console.WriteLine("You got {0} points.", _totalScore);
         }
 
-        public static void RollDie()
+        public static void RollDice()
         {
             Random random = new Random();
             var randomDie =  random.Next(1, 7);
