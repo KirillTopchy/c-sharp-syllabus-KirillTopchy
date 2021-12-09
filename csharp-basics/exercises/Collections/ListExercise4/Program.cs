@@ -20,13 +20,15 @@ namespace ListExercise4
                 "Black"
             };
 
-            //fixme
-            //string element = ...;
-            //Console.WriteLine("First element: " + element);
-
-            //fixme
-            //element = ...;
-            //Console.WriteLine("Third element: " + element);
+            
+            var element = "Blue";
+            colors.Add(element);
+            Console.WriteLine("First element: " + element);
+            
+            element = "Brown";
+            colors.Add(element);
+            Console.WriteLine("Third element: " + element);
+            Console.ReadKey();
         }
     }
 }
