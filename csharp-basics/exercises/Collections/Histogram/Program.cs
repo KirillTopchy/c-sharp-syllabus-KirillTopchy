@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,8 +10,9 @@ namespace Histogram
 {
     class Program
     {
-        private const string Path = @"C:\Users\9er0j\Desktop\Programming\Codelex\C#\Lekcijas\c-sharp-syllabus-KirillTopchy\csharp-basics\exercises\Collections\Histogram\midtermscores.txt";
-
+        static readonly string currentDir = Directory.GetCurrentDirectory().Replace("\\bin\\Debug", "");
+        static readonly string Path = (currentDir+"\\midtermscores.txt");
+        
         private static void Main(string[] args)
         {
             DisplayHistogram(SortInputGrades());
@@ -44,6 +46,7 @@ namespace Histogram
                 }
                 Console.WriteLine();
             }
+
             Console.Write("  100: ");
             foreach (var score in scores.Where(score => score == 100))
             {
