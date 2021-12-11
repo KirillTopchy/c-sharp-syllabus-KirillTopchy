@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,7 +11,8 @@ namespace WordCount
     class Program
     {
         private static int _counter;
-        private const string Path = @"C:\Users\9er0j\Desktop\Programming\Codelex\C#\Lekcijas\c-sharp-syllabus-KirillTopchy\csharp-basics\exercises\Collections\WordCount\lear.txt";
+        private static readonly string CurrentDir = Directory.GetCurrentDirectory().Replace("\\bin\\Debug", "");
+        private static readonly string Path = (CurrentDir + "\\lear.txt");
 
         static void Main(string[] args)
         {
