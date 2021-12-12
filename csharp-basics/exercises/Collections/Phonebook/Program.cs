@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PhoneBook;
 
 namespace Phonebook
 {
@@ -10,6 +7,10 @@ namespace Phonebook
     {
         static void Main(string[] args)
         {
+            var phoneBook = new PhoneDirectory();
+            phoneBook.PutNumber("Anton", "1223131");
+            Console.WriteLine(phoneBook.GetNumber("Anton"));
+            Console.ReadKey();
         }
     }
 }
