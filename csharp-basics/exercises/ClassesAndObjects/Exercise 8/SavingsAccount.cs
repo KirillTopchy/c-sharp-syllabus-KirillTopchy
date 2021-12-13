@@ -1,59 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercise_8
+﻿namespace Exercise_8
 {
     class SavingsAccount
     {
-        private double AnnualInterestRate { get; set; }
-        private double Balance { get; set; }
-
-        private double Deposits { get; set; }
-
-        private double Withdrawals { get; set; }
-
-        private double InterestEarned { get; set; }
+        private double _annualInterestRate;
+        private double _balance;
+        private double _deposits;
+        private double _withdrawals;
+        private double _interestEarned;
 
         public SavingsAccount(double startBalance)
         {
-            Balance = startBalance;
+            _balance = startBalance;
         }
 
         public double GetBalance()
         {
-            Balance += InterestEarned;
-            return Balance;
+            _balance += _interestEarned;
+            return _balance;
         }
 
         public double GetDeposits()
         {
-            return Deposits;
+            return _deposits;
         }
 
         public double GetWithdrawals()
         {
-            return Withdrawals;
+            return _withdrawals;
         }
 
         public double Withdrawal(double withdrawalAmount)
         {
-            Withdrawals += withdrawalAmount;
-            return Balance -= withdrawalAmount;
+            _withdrawals += withdrawalAmount;
+            return _balance -= withdrawalAmount;
         }
 
         public double Deposit(double depositAmount)
         {
-            Deposits += depositAmount;
-            return Balance += depositAmount;
+            _deposits += depositAmount;
+            return _balance += depositAmount;
         }
 
         public double MonthlyInterest(double interestRate)
         {
-            AnnualInterestRate = interestRate;
-            return InterestEarned = Balance * AnnualInterestRate/12*4/100;
+            _annualInterestRate = interestRate;
+            return _interestEarned = _balance * _annualInterestRate/12*4/100;
         }
     }
 }
