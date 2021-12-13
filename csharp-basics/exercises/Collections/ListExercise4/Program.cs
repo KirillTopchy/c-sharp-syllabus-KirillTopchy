@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListExercise4
 {
@@ -10,7 +7,6 @@ namespace ListExercise4
     {
         private static void Main(string[] args)
         {
-            // Create a list and add some colors to the list
             var colors = new List<string>
             {
                 "Red",
@@ -20,7 +16,6 @@ namespace ListExercise4
                 "Black"
             };
 
-            
             var element = "Blue";
             colors.Add(element);
             Console.WriteLine("First element: " + element);
