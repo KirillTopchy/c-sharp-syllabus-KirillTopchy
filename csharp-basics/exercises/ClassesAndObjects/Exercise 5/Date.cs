@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise_5
 {
     class Date
     {
-        private int Day { get; set; }
-        private int Month { get; set; }
-        private int Year { get; set; }
+        private readonly int _day;
+        private readonly int _month;
+        private readonly int _year;
 
         public Date(int day, int month, int year)
         {
-            Day = day;
-            Month = month;
-            Year = year;
+            _day = day;
+            _month = month;
+            _year = year;
         }
 
         public void DisplayDate()
         {
-            Console.WriteLine($"{Month}/{Day}/{Year}");
+            Console.WriteLine($"{_month}/{_day}/{_year}");
         }   
     }
 }
