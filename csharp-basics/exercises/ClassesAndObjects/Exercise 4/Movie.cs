@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace Exercise_4
+﻿namespace Exercise_4
 {
     class Movie
     {
-        private string _title { get; set; }
-        private string _studio { get; set; }
-        public string Rating { get; private set; }
+        private readonly string _title;
+        private readonly string _studio;
+        public string Rating { get; }
 
         public Movie(string title, string studio, string rating)
         {
