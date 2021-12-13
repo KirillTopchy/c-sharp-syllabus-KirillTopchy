@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise1
 {
     class Product
     {
-        private double _price { get; set; }
-        private int _amount { get; set; }
+        private double _price;
+        private int _amount;
         private readonly string _name;
 
         public Product(string name, double priceAtStart, int amountAtStart)
