@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace WordCount
 {
@@ -25,7 +22,7 @@ namespace WordCount
         private static void CountLines()
         {
             _counter = 0;
-            foreach (var line in System.IO.File.ReadLines(Path))
+            foreach (var line in File.ReadLines(Path))
             {
                 _counter++;
             }
@@ -35,7 +32,7 @@ namespace WordCount
         private static void CountWords()
         {
             _counter = 0;
-            foreach (var word in System.IO.File.ReadLines(Path))
+            foreach (var word in File.ReadLines(Path))
             {
                 // replace multiple spaces with single one and split string by space.
                 var splited = Regex.Replace(word, @"\s+", " ").Split(' ');
@@ -50,7 +47,7 @@ namespace WordCount
         private static void CountChars()
         {
             _counter = 0;
-            foreach (var c in System.IO.File.ReadAllText(Path).Where(char.IsLetterOrDigit))
+            foreach (var c in File.ReadAllText(Path).Where(char.IsLetterOrDigit))
             {
                 _counter++;
             }
