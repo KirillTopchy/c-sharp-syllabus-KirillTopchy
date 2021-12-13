@@ -4,42 +4,42 @@ namespace Exercise_3
 {
     class FuelGauge
     {
-        private static double CurrentAmountOfFuel { get; set; }
+        private static double _currentAmountOfFuel;
 
         public double GetAmountOfFuel()
         {
-            return Math.Round(CurrentAmountOfFuel, 2);
+            return Math.Round(_currentAmountOfFuel, 2);
         }
 
         public void FillFuel(double liters)
         {
             for (int i = 0; i < liters; i++)
             {
-                CurrentAmountOfFuel++;
+                _currentAmountOfFuel++;
             }
 
             if (GetAmountOfFuel() > 70)
             {
-                CurrentAmountOfFuel = 70;
+                _currentAmountOfFuel = 70;
             }
         }
 
         public static void FuelDecrease()
         {
-            if(CurrentAmountOfFuel > 0)
+            if(_currentAmountOfFuel > 0)
             {
-                CurrentAmountOfFuel = Math.Round(CurrentAmountOfFuel - 0.1, 1);
+                _currentAmountOfFuel = Math.Round(_currentAmountOfFuel - 0.1, 1);
             }
         }
 
         public static void FuelLeftMessage()
         {
-            Console.WriteLine("Fuel left: {0} liters", CurrentAmountOfFuel);
+            Console.WriteLine("Fuel left: {0} liters", _currentAmountOfFuel);
         }
 
         public static bool IsFuel()
         {
-            return CurrentAmountOfFuel != 0;
+            return _currentAmountOfFuel != 0;
         }
     }
 }
