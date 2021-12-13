@@ -42,6 +42,7 @@ namespace Exercise_4
                         result += "^2 = ";
                     }
                 }
+
                 if(sum == 1)
                 {
                     NumberIsHappy = true;
