@@ -5,7 +5,7 @@ namespace VideoStore
 {
      class VideoStore
     {
-        private List<Video> _videos = new List<Video>();
+        private readonly List<Video> _videos = new List<Video>();
 
         public void AddVideo(string title)
         {

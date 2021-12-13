@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VideoStore
 {
     class VideoStoreTest
     {
-        private const int _countOfMovies = 3;
-        private static VideoStore _videoStore = new VideoStore();
+        private const int CountOfMovies = 3;
+        private static readonly VideoStore VideoStore = new VideoStore();
         private static void Main(string[] args)
         {
             while (true)
@@ -51,12 +47,12 @@ namespace VideoStore
 
         private static void ListInventory()
         {
-            _videoStore.ListInventory();
+            VideoStore.ListInventory();
         }
 
         private static void FillVideoStore()
         {
-            for (var i = 0; i < _countOfMovies; i++)
+            for (var i = 0; i < CountOfMovies; i++)
             {
                 Console.WriteLine("Enter movie name");
                 string movieName = Console.ReadLine();
@@ -64,8 +60,8 @@ namespace VideoStore
                 Console.WriteLine("Enter rating");
                 int rating = Convert.ToInt16(Console.ReadLine());
 
-                _videoStore.AddVideo(movieName);
-                _videoStore.TakeUsersRating(rating, movieName);
+                VideoStore.AddVideo(movieName);
+                VideoStore.TakeUsersRating(rating, movieName);
             }
         }
 
@@ -73,7 +69,7 @@ namespace VideoStore
         {
             Console.WriteLine("Enter movie name");
             string movieName = Console.ReadLine();
-            _videoStore.Checkout(movieName);
+            VideoStore.Checkout(movieName);
         }
 
         private static void ReturnVideo()
@@ -82,15 +78,15 @@ namespace VideoStore
             string movieName = Console.ReadLine();
             Console.WriteLine("Enter movie rating");
             double movieRating = Convert.ToDouble(Console.ReadLine());
-            _videoStore.ReturnVideo(movieName);
-            _videoStore.TakeUsersRating(movieRating, movieName);
+            VideoStore.ReturnVideo(movieName);
+            VideoStore.TakeUsersRating(movieRating, movieName);
         }
 
         private static void CheckMovieRating()
         {
             Console.WriteLine("Enter movie name");
             string movieName = Console.ReadLine();
-            Console.WriteLine("Movie rating: {0}", _videoStore.GetRating(movieName));
+            Console.WriteLine("Movie rating: {0}", VideoStore.GetRating(movieName));
         }
     }
 }
