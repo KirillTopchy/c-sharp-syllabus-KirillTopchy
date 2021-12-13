@@ -1,31 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankAccount
 {
     class BankAccount
     {
-        private string Name { get; set; }
-        private  double Balance { get; set; }
+        private readonly string _name;
+        private readonly double _balance;
 
         public BankAccount(string name, double balance)
         {
-            Name = name;
-            Balance = balance;
+            _name = name;
+            _balance = balance;
         }
 
         public string ShowUserNameAndBalance()
         {
-            if (Balance < 0)
+            if (_balance < 0)
             {
                 const string fmt1 = "#,##0.00";
-                var output = Name.ToString() + ", -$" + Math.Abs(Balance).ToString(fmt1);
+                var output = _name + ", -$" + Math.Abs(_balance).ToString(fmt1);
                 return output;
             }
-            return $"{Name}, {Balance:C2}";
+            return $"{_name}, {_balance:C2}";
         }
 
     }
