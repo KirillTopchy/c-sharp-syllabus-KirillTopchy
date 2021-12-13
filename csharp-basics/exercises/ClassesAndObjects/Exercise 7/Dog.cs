@@ -1,40 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exercise_7
+﻿namespace Exercise_7
 {
     class Dog
     {
-        private string Name { get; set; }
-        private string Sex { get; set; }
-        private string Mother { get; set; }
-        private string Father { get; set; }
+        private string _name;
+        private string _sex;
+        private readonly string _mother;
+        private readonly string _father;
 
         public Dog(string name, string sex)
         {
-            Name = name;
-            Sex = sex;
+            _name = name;
+            _sex = sex;
         }
 
         public Dog(string name, string sex, string mother, string father)
         {
-            Name = name;
-            Sex = sex;
-            Mother = mother;
-            Father = father;
+            _name = name;
+            _sex = sex;
+            _mother = mother;
+            _father = father;
         }
 
         public string FathersName()
         {
-            return Father ?? "Unknown";
+            return _father ?? "Unknown";
         }
 
         public bool HasSameMotherAs(Dog dog1)
         {
-            return dog1.Mother == Mother;
+            return dog1._mother == _mother;
         }
     }
 }
