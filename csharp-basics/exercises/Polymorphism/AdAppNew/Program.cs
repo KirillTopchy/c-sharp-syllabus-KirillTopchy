@@ -11,6 +11,7 @@ namespace AdApp
             c.AddAdvert(new Hoarding(500, 7, 200));
             c.AddAdvert(new NewspaperAd(0, 30, 20));
             c.AddAdvert(new TVAd(50000, 1000, 30, true));
+            c.AddAdvert(new Poster(1250, 50.5, 32.3, 210, 2.01));
             Console.WriteLine(c);
         }
     }
