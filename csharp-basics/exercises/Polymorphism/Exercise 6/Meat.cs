@@ -4,7 +4,6 @@
     {
         public Meat(int quantity) : base(quantity)
         {
-
         }
     }
 }

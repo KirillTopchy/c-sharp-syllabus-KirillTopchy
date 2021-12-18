@@ -4,7 +4,6 @@
     {
         public Vegetable(int quantity) : base(quantity)
         {
-
         }
     }
 }
