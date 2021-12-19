@@ -9,5 +9,10 @@
         {
             _livingRegion = livingRegion;
         }
+
+        public string AnimalLivingRegion
+        {
+            get => _livingRegion;
+        }
     }
 }

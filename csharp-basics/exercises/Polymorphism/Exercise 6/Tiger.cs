@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise_6
 {
@@ -13,6 +9,25 @@ namespace Exercise_6
             int foodEaten, string livingRegion) : base(animalName, animalType, animalWeight, foodEaten, livingRegion)
         {
             _livingRegion = livingRegion;
+        }
+
+        public override void MakeSound()
+        {
+            Console.WriteLine("ROAR");
+        }
+
+        public override bool Eat(Food food)
+        {
+            if (food is Meat)
+            {
+                FoodEaten = 0;
+                FoodEaten += food.FoodQuantity;
+                return true;
+            }
+
+            FoodEaten = 0;
+            Console.WriteLine($"{AnimalType} is not eating that type of food!");
+            return false;
         }
     }
 }

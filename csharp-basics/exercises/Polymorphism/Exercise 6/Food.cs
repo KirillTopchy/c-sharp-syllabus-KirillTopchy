@@ -8,5 +8,10 @@
         {
             _quantity = quantity;
         }
+
+        public int FoodQuantity
+        {
+            get => _quantity;
+        }
     }
 }

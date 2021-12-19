@@ -1,59 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Exercise_6
 {
     class Program
     {
-        
+        private static readonly List<Animal> AnimalList = new List<Animal>();
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter information about animal according to example below");
-            Console.WriteLine("{AnimalType} {AnimalName} {AnimalWeight} {AnimalLivingRegion} [{CatBreed} = Only if its cat]");
-            Console.WriteLine("Enter information about food you should give to the Animal");
-
-            var animalList = new List<Animal>();
-
             var type = "";
             var name = "";
-            double weight = 0.0;
+            var weight = 0.0;
             var region = "";
             var breed = "";
-            var food = "";
             var foodQuantity = 0;
 
             while (true)
             {
+                Console.WriteLine("Enter information about animal according to example below");
+                Console.WriteLine("{AnimalType} {AnimalName} {AnimalWeight} {AnimalLivingRegion} [{CatBreed} = Only if its cat]");
+
                 var animalInfo = AnimalInfoInput();
 
                 if (animalInfo.Count == 1 && animalInfo[0].ToLower() == "end")
                 {
+                    DisplayAnimals();
                     break;
                 }
 
-                var animalFoodInfo = AnimalFoodInfoInput();
-
-                while (animalInfo.Count < 4)
+                while (animalInfo.Count is > 1 and < 4)
                 {
                     Console.WriteLine("Wrong input: information about animal should contain animal type, name, weight, living region");
                     animalInfo = AnimalInfoInput();
-                    
-                }
-
-                while (animalFoodInfo.Count != 2)
-                {
-                    Console.WriteLine("Wrong input: information about animal food should contain food type and food quantity");
-                    animalFoodInfo = AnimalFoodInfoInput();
                 }
 
                 type = animalInfo[0];
                 name = animalInfo[1];
                 weight = Convert.ToDouble(animalInfo[2]);
                 region = animalInfo[3];
-                food = animalFoodInfo[0];
+
+                Console.WriteLine("Enter information about food you should give to the Animal");
+                Console.WriteLine("{FoodType}, {FoodQuantity}");
+
+                var animalFoodInfo = AnimalFoodInfoInput();
+
                 foodQuantity = Convert.ToInt32(animalFoodInfo[1]);
+
+                while (animalFoodInfo.Count != 2)
+                {
+                    Console.WriteLine("Wrong input: information about animal food should contain food type and food quantity");
+                    Console.WriteLine("{FoodType}, {FoodQuantity}");
+                    animalFoodInfo = AnimalFoodInfoInput();
+                }
 
                 if (animalInfo.Count == 5)
                 {
@@ -65,25 +64,25 @@ namespace Exercise_6
                     case "cat":
                     {
                         Animal cat = new Cat(name, type, weight, foodQuantity, region, breed);
-                        animalList.Add(cat);
+                        AnimalList.Add(cat);
                         break;
                     }
                     case "tiger":
                     {
                         Animal tiger = new Tiger(name, type, weight, foodQuantity, region);
-                        animalList.Add(tiger);
+                        AnimalList.Add(tiger);
                         break;
                     }
                     case "mouse":
                     {
                         Animal mouse = new Mouse(name, type, weight, foodQuantity, region);
-                        animalList.Add(mouse);
+                        AnimalList.Add(mouse);
                         break;
                     }
                     case "zebra":
                     {
                         Animal zebra = new Zebra(name, type, weight, foodQuantity, region);
-                        animalList.Add(zebra);
+                        AnimalList.Add(zebra);
                         break;
                     }
                     default:
@@ -91,10 +90,20 @@ namespace Exercise_6
                         break;
                 }
 
-                Console.WriteLine(animalList.Count);
-                foreach (var animal in animalList)
+                switch (animalFoodInfo[0].ToLower())
                 {
-                    Console.WriteLine(animal);
+                    case "vegetable":
+                    {
+                        var vegetable = new Vegetable(int.Parse(animalFoodInfo[1]));
+                        FeedAnimal(AnimalList[^1], vegetable);
+                        break;
+                    }
+                    case "meat":
+                    {
+                        var meat = new Meat(int.Parse(animalFoodInfo[1]));
+                        FeedAnimal(AnimalList[^1], meat);
+                        break;
+                    }
                 }
             }
         }
@@ -109,6 +118,29 @@ namespace Exercise_6
         {
             var animalFoodInfo = Console.ReadLine()?.Split(' ').ToList();
             return animalFoodInfo;
+        }
+
+        public static void DisplayAnimals()
+        {
+            foreach (var animal in AnimalList)
+            {
+                if (animal.AnimalType.ToLower() == "cat")
+                {
+                    Console.WriteLine($"{animal.AnimalType} [{animal.AnimalName}, {((Cat)animal).AnimalBread}, " +
+                                      $"{animal.AnimalWeight}, {((Mammal)animal).AnimalLivingRegion}, {animal.FoodEaten}]");
+                }
+                else
+                {
+                    Console.WriteLine($"{animal.AnimalType} [{animal.AnimalName}, " +
+                                      $"{animal.AnimalWeight}, {((Mammal)animal).AnimalLivingRegion}, {animal.FoodEaten}]");
+                }
+            }
+        }
+
+        public static void FeedAnimal(Animal animal, Food food)
+        {
+            animal.MakeSound();
+            animal.Eat(food);
         }
     }
 }
