@@ -6,11 +6,12 @@ namespace Exercise_6.Tests
     [TestClass]
     public class CreateArrayTests
     {
+        
         [TestMethod]
         public void CreateRandomNumberArray_10_ShouldReturnRandomNumberArrayWithLength10()
         {
             //Arrange
-
+            
             //Act
             
             //Assert
