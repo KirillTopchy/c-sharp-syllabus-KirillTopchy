@@ -11,15 +11,9 @@ namespace Exercise_1
             Console.WriteLine("Enter second integer");
             var secondInt = Convert.ToInt32(Console.ReadLine());
 
-            var finalResult = IntegerAnalyzer(firstInt, secondInt);
+            var finalResult = IntegerAnalyzer.CompareIntegers(firstInt, secondInt);
 
             Console.WriteLine(finalResult);
-        }
-
-        public static bool IntegerAnalyzer(int a, int b)
-        {
-            return a == 15 || b == 15 || a + b == 15 ||
-                    a - b == 15 || b - a == 15;
         }
     }
 }
