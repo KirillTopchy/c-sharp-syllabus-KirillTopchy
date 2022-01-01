@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Exercise_6</RootNamespace>
+    <AssemblyName />
   </PropertyGroup>
 
 </Project>

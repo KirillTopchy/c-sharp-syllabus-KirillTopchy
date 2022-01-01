@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise 6", "Exercise 6\Exercise 6.csproj", "{122DE1DF-C29C-4C06-9755-A8D93C990DE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman\Hangman.csproj", "{6D2DD4F4-B7B2-478A-91B3-25B746D6DCCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangman", "Hangman\Hangman.csproj", "{6D2DD4F4-B7B2-478A-91B3-25B746D6DCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise 6.Tests", "Exercise 6.Tests\Exercise 6.Tests.csproj", "{213B37BA-73DE-4504-9A33-6DDCA1405BE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{6D2DD4F4-B7B2-478A-91B3-25B746D6DCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D2DD4F4-B7B2-478A-91B3-25B746D6DCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D2DD4F4-B7B2-478A-91B3-25B746D6DCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213B37BA-73DE-4504-9A33-6DDCA1405BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213B37BA-73DE-4504-9A33-6DDCA1405BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213B37BA-73DE-4504-9A33-6DDCA1405BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213B37BA-73DE-4504-9A33-6DDCA1405BE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
