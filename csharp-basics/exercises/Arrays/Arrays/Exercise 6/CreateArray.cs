@@ -2,10 +2,10 @@
 
 namespace Exercise_6
 {
-    public class CreateArray
+    public static class CreateArray
     {
-        private static readonly int _min = 1;
-        private static readonly int _max = 101;
+        private const int Min = 1;
+        private const int Max = 101;
 
         public static int[] CreateRandomNumberArray(int length)
         {
@@ -14,7 +14,7 @@ namespace Exercise_6
             for (int i = 0; i < firstRandomNumbersArray.Length; i++)
             {
                 var random = new Random();
-                firstRandomNumbersArray[i] = random.Next(_min, _max);
+                firstRandomNumbersArray[i] = random.Next(Min, Max);
             }
 
             return firstRandomNumbersArray;
@@ -27,7 +27,7 @@ namespace Exercise_6
             return secondRandomNumbersArray;
         }
 
-        public static void ReplacLastElementOfArrayWith7(int[] firstArray)
+        public static void ReplaceLastElementOfArrayWith7(int[] firstArray)
         {
             firstArray[^1] = -7;
         }

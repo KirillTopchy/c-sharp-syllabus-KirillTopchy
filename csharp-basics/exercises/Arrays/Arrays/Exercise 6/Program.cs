@@ -10,7 +10,7 @@ namespace Exercise_6
             var secondRandomNumberArray = CreateArray.CopyArray(firstRandomNumberArray);
             CreateArray.PrintArray(firstRandomNumberArray);
             CreateArray.PrintArray(secondRandomNumberArray);
-            CreateArray.ReplacLastElementOfArrayWith7(secondRandomNumberArray);
+            CreateArray.ReplaceLastElementOfArrayWith7(secondRandomNumberArray);
             CreateArray.PrintArray(secondRandomNumberArray);
         }
     }
