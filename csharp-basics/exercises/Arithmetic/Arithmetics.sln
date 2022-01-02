@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaLozaWoza.Tests", "CozaL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravityCalculator.Tests", "GravityCalculator.Tests\GravityCalculator.Tests.csproj", "{67CD7222-5F07-4CD4-9EC7-E45054365824}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise8.Tests", "Exercise8.Tests\Exercise8.Tests.csproj", "{1121F56B-1E1B-4F9C-83C0-058A1F36549D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{67CD7222-5F07-4CD4-9EC7-E45054365824}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67CD7222-5F07-4CD4-9EC7-E45054365824}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CD7222-5F07-4CD4-9EC7-E45054365824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1121F56B-1E1B-4F9C-83C0-058A1F36549D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1121F56B-1E1B-4F9C-83C0-058A1F36549D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1121F56B-1E1B-4F9C-83C0-058A1F36549D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1121F56B-1E1B-4F9C-83C0-058A1F36549D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

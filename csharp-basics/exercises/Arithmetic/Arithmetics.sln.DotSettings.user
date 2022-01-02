@@ -12,6 +12,12 @@
       &lt;TestId&gt;xUnit::04A3CAA8-B4FC-4C37-9585-D237286C7704::net5.0::CozaLozaWoza.Tests.CozaLozaWozeTests&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::67CD7222-5F07-4CD4-9EC7-E45054365824::net5.0::GravityCalculator.Tests.FinalPositionCalculatorTests.GetFinalPosition_minus9Point81_10_0_0_ShouldReturn490Point5&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::67CD7222-5F07-4CD4-9EC7-E45054365824::net5.0::GravityCalculator.Tests.FinalPositionCalculatorTests.GetFinalPosition_minus9Point81_10_5Point5_50Point3_ShouldReturn490Point5&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_7Point5_35_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_47_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_25_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_47_ShouldReturnSalary414Point10&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.DisplayMessage_280_7Point5_35_ShouldDisplaySalaryInfo&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
