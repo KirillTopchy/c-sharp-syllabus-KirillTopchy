@@ -2,7 +2,7 @@
 
 namespace Exercise1
 {
-    class Product
+    public class Product
     {
         private double _price;
         private int _amount;
@@ -15,9 +15,9 @@ namespace Exercise1
             _price = priceAtStart;
         }
 
-        public void PrintProduct()
+        public string GetProduct()
         {
-            Console.WriteLine("{0}, price {1}, amount {2}", _name, _price, _amount);
+            return $"{_name}, price {_price}, amount {_amount}";
         }
 
         public int Amount

@@ -11,22 +11,22 @@ namespace Exercise1
             var projector = new Product("Epson EB-U05", 440.46, 1);
 
             Console.WriteLine("Initial values.");
-            mouse.PrintProduct();
-            iPhone.PrintProduct();
-            projector.PrintProduct();
+            Console.WriteLine(mouse.GetProduct());
+            Console.WriteLine(iPhone.GetProduct());
+            Console.WriteLine(projector.GetProduct());
 
             Console.WriteLine("Changed values.");
             mouse.Amount = 13;
             mouse.Price = 69.99;
-            mouse.PrintProduct();
+            Console.WriteLine(mouse.GetProduct());
 
             iPhone.Amount = 4;
             iPhone.Price = 899.99;
-            iPhone.PrintProduct();
+            Console.WriteLine(iPhone.GetProduct());
 
             projector.Amount = 0;
             projector.Price = 599.99;
-            projector.PrintProduct();
+            Console.WriteLine(projector.GetProduct());
         }
     }
 }
