@@ -8,6 +8,8 @@
       &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.UnitTest1.OddOrEven_4_ShouldBeEven&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.UnitTest1&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.CheckOddEvenTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::04A3CAA8-B4FC-4C37-9585-D237286C7704::net5.0::CozaLozaWoza.Tests.UnitTest1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::04A3CAA8-B4FC-4C37-9585-D237286C7704::net5.0::CozaLozaWoza.Tests.CozaLozaWozeTests&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
