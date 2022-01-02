@@ -2,6 +2,6 @@
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\9er0j\AppData\Local\Temp\JetBrains\ReSharperPlatformVs16\vAny_218a6e9d\CoverageData\_Collections.676413515\Snapshot\snapshot.utdcvr</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2061bea6_002Dde78_002D4d96_002D983a_002Db8ae9037c249/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CounterTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::660CC86F-C51D-48A0-9CA3-E2610D8EF14F::net5.0::WordCounter.Tests.CounterTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9581F36D-0F70-40AE-958C-F6A4892D4D86::net5.0::FlightPlanner.Tests.PlanYourFlightTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
