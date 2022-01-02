@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\9er0j\AppData\Local\Temp\JetBrains\ReSharperPlatformVs16\vAny_218a6e9d\CoverageData\_Polymorphism.-1520262215\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=432aee7b_002Da8c5_002D41fa_002Db97a_002Dca2b2fa6bad1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SpeedUp_target_ShouldIncreaseSpeedBy10" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.AudiTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.BmwTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.LexusTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.VolksWagenTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.TeslaTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.ToyotaTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

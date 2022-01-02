@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DragRace
+﻿namespace DragRace
 {
     public class Lexus : ICar, IBoostable
     {
@@ -26,9 +24,9 @@ namespace DragRace
             _currentSpeed+=40;
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            Console.WriteLine("Rrrrrrr.....");
+            return "Bruuummmm.....";
         }
     }
 }
