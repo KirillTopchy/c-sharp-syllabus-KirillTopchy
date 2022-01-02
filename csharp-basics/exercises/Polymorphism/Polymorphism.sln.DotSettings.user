@@ -8,5 +8,9 @@
     &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.VolksWagenTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.TeslaTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::5858FA99-CCB5-4B65-8DDB-D71428521FE0::net5.0::DragRace.Tests.ToyotaTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A8556E5-9F06-48FC-AA96-8934C1CD4324::net5.0::Exercise6.Tests.MouseTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A8556E5-9F06-48FC-AA96-8934C1CD4324::net5.0::Exercise6.Tests.CatTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A8556E5-9F06-48FC-AA96-8934C1CD4324::net5.0::Exercise6.Tests.TigerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A8556E5-9F06-48FC-AA96-8934C1CD4324::net5.0::Exercise6.Tests.ZebraTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

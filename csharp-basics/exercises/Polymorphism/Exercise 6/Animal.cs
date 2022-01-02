@@ -2,7 +2,7 @@
 
 namespace Exercise_6
 {
-    abstract class Animal
+    public class Animal
     {
         private string _animalName;
         private string _animalType;
@@ -38,9 +38,9 @@ namespace Exercise_6
             set => _foodEaten = value;
         }
 
-        public virtual void MakeSound()
+        public virtual string MakeSound()
         {
-            Console.WriteLine("SOUND");
+           return "SOUND";
         }
 
         public virtual bool Eat(Food food)
