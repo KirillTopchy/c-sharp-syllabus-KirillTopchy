@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DragRace
+﻿namespace DragRace
 {
-    class Toyota : ICar
+    public class Toyota : ICar
     {
         private int _currentSpeed = 0;
 
@@ -25,9 +19,9 @@ namespace DragRace
             return _currentSpeed.ToString();
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            Console.WriteLine("phphphph.....");
+            return "phphphph.....";
         }
     }
 }

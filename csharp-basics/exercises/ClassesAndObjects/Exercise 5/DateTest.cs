@@ -7,7 +7,7 @@ namespace Exercise_5
         static void Main(string[] args)
         {
             var date1 = new Date(8, 3, 1994);
-            date1.DisplayDate();
+            Console.WriteLine(date1.GetDate());
         }
     }
 }

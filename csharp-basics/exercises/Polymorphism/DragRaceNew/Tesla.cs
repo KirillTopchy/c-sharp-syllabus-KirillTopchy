@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DragRace
+﻿namespace DragRace
 {
     public class Tesla : ICar
     {
@@ -21,9 +19,9 @@ namespace DragRace
             return _currentSpeed.ToString();
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            Console.WriteLine("-- silence ---");
+           return "-- silence ---";
         }
     }
 }

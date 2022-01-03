@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\9er0j\AppData\Local\Temp\JetBrains\ReSharperPlatformVs16\vAny_218a6e9d\CoverageData\_ClassesAndObjects.1402277863\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=23b33497_002Ddfb1_002D4182_002Db4e1_002D2f7c3af0257b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="DateTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F4B5945F-4339-4F4A-A1D4-1AA2F8524A65::net5.0::Exercise5.Tests.DateTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F9B9B3A9-7FCF-46AC-8FCB-683FC4F525CC::net5.0::Account.Tests.AccountTests.Withdrawal_50_BalanceShouldBeEqualsTo200Point50&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F9B9B3A9-7FCF-46AC-8FCB-683FC4F525CC::net5.0::Account.Tests.AccountTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F9B9B3A9-7FCF-46AC-8FCB-683FC4F525CC::net5.0::Account.Tests.TransferTests.MoneyTransfer_target_target2_50Point50_target2BalanceShouldBe50Point50&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f5b3936f_002D8835_002D448d_002Dbb1e_002Dd1b257c17a06/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ProductTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A96DB35E-259D-4414-B4D0-5C354D9EDF23::net5.0::Exercise1.Tests.ProductTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F4B5945F-4339-4F4A-A1D4-1AA2F8524A65::net5.0::Exercise5.Tests.DateTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

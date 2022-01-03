@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Phonebook;
+using Phonebook.Exceptions;
 
 namespace PhoneBook
 {
@@ -15,9 +17,13 @@ namespace PhoneBook
 
         public void PutNumber(string name, string number) 
         {
-            if (name == null || number == null) 
+            if (number == null) 
             {
-                throw new Exception("name and number cannot be null");
+                throw new NumberIsNullException("Number cannot be null");
+            }
+            if (name == null)
+            {
+                throw new NameIsNullException("Name cannot be null");
             }
             if (!_data.ContainsKey(name))
             {

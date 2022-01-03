@@ -1,6 +1,6 @@
 ﻿namespace Exercise_6
 {
-    abstract class Food
+    public class Food
     {
         private int _quantity;
 

@@ -2,7 +2,7 @@
 
 namespace Exercise_5
 {
-    class Date
+    public class Date
     {
         private readonly int _day;
         private readonly int _month;
@@ -15,9 +15,9 @@ namespace Exercise_5
             _year = year;
         }
 
-        public void DisplayDate()
+        public string GetDate()
         {
-            Console.WriteLine($"{_month}/{_day}/{_year}");
+            return $"{_month}/{_day}/{_year}";
         }   
     }
 }

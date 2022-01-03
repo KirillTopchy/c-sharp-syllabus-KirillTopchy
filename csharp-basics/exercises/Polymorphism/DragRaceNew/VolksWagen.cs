@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DragRace
+﻿namespace DragRace
 {
     public class VolksWagen : ICar, IBoostable
     {
@@ -25,9 +19,9 @@ namespace DragRace
             return _currentSpeed.ToString();
         }
 
-        public void StartEngine()
+        public string StartEngine()
         {
-            Console.WriteLine("BRRRRR.....");
+            return "BRRRRR.....";
         }
 
         public void UseNitrousOxideEngine()

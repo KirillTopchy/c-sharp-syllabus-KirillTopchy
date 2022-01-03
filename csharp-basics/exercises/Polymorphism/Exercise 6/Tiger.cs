@@ -2,7 +2,7 @@
 
 namespace Exercise_6
 {
-    class Tiger : Felime
+    public class Tiger : Felime
     {
         private string _livingRegion;
         public Tiger(string animalName, string animalType, double animalWeight,
@@ -11,9 +11,9 @@ namespace Exercise_6
             _livingRegion = livingRegion;
         }
 
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("ROAR");
+            return "ROAR";
         }
 
         public override bool Eat(Food food)

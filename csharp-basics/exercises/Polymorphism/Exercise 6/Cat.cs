@@ -2,7 +2,7 @@
 
 namespace Exercise_6
 {
-    class Cat : Felime
+    public class Cat : Felime
     {
         private string _breed;
         public Cat(string animalName, string animalType, double animalWeight,
@@ -16,9 +16,9 @@ namespace Exercise_6
             get => _breed;
         }
 
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("MurMurMur");
+            return "MurMurMur";
         }
 
         public override bool Eat(Food food)
@@ -30,8 +30,6 @@ namespace Exercise_6
                 return true;
             }
 
-            FoodEaten = 0;
-            Console.WriteLine($"{AnimalType} is not eating that type of food!");
             return false;
         }
     }

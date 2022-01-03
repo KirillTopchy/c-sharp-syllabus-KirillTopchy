@@ -1,0 +1,23 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\9er0j\AppData\Local\Temp\JetBrains\ReSharperPlatformVs16\vAny_218a6e9d\CoverageData\_Arithmetics.-596620888\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f7ba46f4_002Dd41a_002D4384_002Db913_002D63b7fa26346a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AreaOfRectangle_5_5_ShouldReturn25Point00" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\9er0j\Desktop\Programming\Codelex\C#\Lekcijas\c-sharp-syllabus-KirillTopchy\csharp-basics\exercises\Arithmetic\CalculateArea.Tests" Presentation="&amp;lt;CalculateArea.Tests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::2564080F-C783-4EBE-98EF-4479F839CCB3::net5.0::Exercise1.Tests.IntegerAnalyzerTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.UnitTest1.OddOrEven_4_ShouldBeEven&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.UnitTest1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::63A70A7A-EA46-45BB-BC9A-304BBA3ED2A9::net5.0::Exercise2.Tests.CheckOddEvenTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::04A3CAA8-B4FC-4C37-9585-D237286C7704::net5.0::CozaLozaWoza.Tests.UnitTest1&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::04A3CAA8-B4FC-4C37-9585-D237286C7704::net5.0::CozaLozaWoza.Tests.CozaLozaWozeTests&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::67CD7222-5F07-4CD4-9EC7-E45054365824::net5.0::GravityCalculator.Tests.FinalPositionCalculatorTests.GetFinalPosition_minus9Point81_10_0_0_ShouldReturn490Point5&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::67CD7222-5F07-4CD4-9EC7-E45054365824::net5.0::GravityCalculator.Tests.FinalPositionCalculatorTests.GetFinalPosition_minus9Point81_10_5Point5_50Point3_ShouldReturn490Point5&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_7Point5_35_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_47_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_25_ShouldReturnSalary280&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.CalculateSalary_8Point2_47_ShouldReturnSalary414Point10&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests.DisplayMessage_280_7Point5_35_ShouldDisplaySalaryInfo&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1121F56B-1E1B-4F9C-83C0-058A1F36549D::net5.0::Exercise8.Tests.SalaryCalculatorTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

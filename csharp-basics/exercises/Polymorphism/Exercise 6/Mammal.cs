@@ -1,6 +1,6 @@
 ﻿namespace Exercise_6
 {
-    abstract class Mammal : Animal
+    public class Mammal : Animal
     {
         private string _livingRegion;
 
