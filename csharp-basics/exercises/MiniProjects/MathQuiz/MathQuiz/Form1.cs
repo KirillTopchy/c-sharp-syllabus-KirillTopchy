@@ -87,7 +87,7 @@ namespace MathQuiz
             }
 
             // Start the timer.
-            _timeLeft = 10;
+            _timeLeft = 30;
             timeLabel.Text = @"30 seconds";
             timer1.Start();
             
