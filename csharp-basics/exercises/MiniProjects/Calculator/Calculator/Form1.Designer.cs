@@ -48,8 +48,8 @@ namespace Calculator
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonPoint = new System.Windows.Forms.Button();
             this.buttonZero = new System.Windows.Forms.Button();
-            this.textBoxResult = new System.Windows.Forms.TextBox();
             this.labelOperations = new System.Windows.Forms.Label();
+            Form1.textBoxResult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonSeven
@@ -337,16 +337,6 @@ namespace Calculator
             this.buttonZero.Click += new System.EventHandler(this.ButtonClick);
             this.buttonZero.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
             // 
-            // textBoxResult
-            // 
-            this.textBoxResult.Font = new System.Drawing.Font("Calibri", 19.69811F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxResult.Location = new System.Drawing.Point(29, 43);
-            this.textBoxResult.Name = "textBoxResult";
-            this.textBoxResult.Size = new System.Drawing.Size(273, 43);
-            this.textBoxResult.TabIndex = 20;
-            this.textBoxResult.Text = "0";
-            this.textBoxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // labelOperations
             // 
             this.labelOperations.AutoSize = true;
@@ -356,6 +346,16 @@ namespace Calculator
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(0, 26);
             this.labelOperations.TabIndex = 21;
+            //// 
+            //// textBoxResult
+            //// 
+            Form1.textBoxResult.Font = new System.Drawing.Font("Calibri", 14.26415F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            Form1.textBoxResult.Location = new System.Drawing.Point(29, 53);
+            Form1.textBoxResult.Name = "textBoxResult";
+            Form1.textBoxResult.Size = new System.Drawing.Size(273, 33);
+            Form1.textBoxResult.TabIndex = 22;
+            Form1.textBoxResult.Text = "0";
+            Form1.textBoxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Form1
             // 
@@ -363,8 +363,8 @@ namespace Calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(334, 334);
+            this.Controls.Add(Form1.textBoxResult);
             this.Controls.Add(this.labelOperations);
-            this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.buttonEquals);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonPoint);
@@ -414,8 +414,8 @@ namespace Calculator
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonPoint;
         private System.Windows.Forms.Button buttonZero;
-        private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Label labelOperations;
+        internal static System.Windows.Forms.TextBox textBoxResult;
     }
 }
 

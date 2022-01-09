@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Globalization;
 using System.Windows.Forms;
 
 namespace Calculator
 {
     public partial class Form1 : Form
     {
-        private decimal _labelResult = 0;
-        private decimal _secondLabelValue = 0;
-        private string _operationPerformed = "";
+        internal static decimal _labelResult = 0;
+        internal static decimal _secondLabelValue = 0;
+        public static string OperationPerformed = "";
         private bool _isOperationPerformed = false;
-        private string _lastClick = "";
-        private bool _resultShown = false;
-
+        private bool _isSameOperationPerformed = false;
+        private bool _firstValueEntered = false;
+        public static int Counter = 0;
 
         public Form1()
         {
@@ -21,12 +20,13 @@ namespace Calculator
 
         private void ButtonClick(object sender, EventArgs e)
         {
-            if ((textBoxResult.Text == "0") || (_isOperationPerformed) || _lastClick == "operator")
+            if (textBoxResult.Text == "0" || _isOperationPerformed)
             {
                 textBoxResult.Clear();
             }
 
             _isOperationPerformed = false;
+
             var button = (Button) sender;
             if (button.Text == ".")
             {
@@ -37,41 +37,49 @@ namespace Calculator
             }
             else
             {
-                textBoxResult.Text += button.Text;
-                _secondLabelValue = decimal.Parse(textBoxResult.Text);
+                if (_firstValueEntered == false)
+                {
+                    textBoxResult.Text += button.Text;
+                    _labelResult = decimal.Parse(textBoxResult.Text);
+                }
+                else
+                {
+                    textBoxResult.Text += button.Text;
+                    _secondLabelValue = decimal.Parse(textBoxResult.Text);
+                }
             }
-
-            _lastClick = "button";
         }
 
         private void OperatorClick(object sender, EventArgs e)
         {
+            Counter = 0;
             var button = (Button)sender;
-
-            if (_lastClick == "operator")
+            if (_isOperationPerformed == false)
             {
-                _isOperationPerformed = false;
-                _operationPerformed = button.Text;
-                labelOperations.Text = _labelResult + " " + _operationPerformed + " ";
+                _isOperationPerformed = true;
+                _firstValueEntered = true;
+                OperationPerformed = button.Text;
+                labelOperations.Text = textBoxResult.Text + " " + OperationPerformed + " ";
             }
             else
             {
                 if (_labelResult != 0)
                 {
-                    buttonEquals.PerformClick();
-                    _operationPerformed = button.Text;
-                    labelOperations.Text += _labelResult + " " + _operationPerformed + " ";
                     _isOperationPerformed = true;
+                    _firstValueEntered = true;
+                    new CalculateResult().Calculation();
+                    OperationPerformed = button.Text;
+                    labelOperations.Text += textBoxResult.Text + " " + OperationPerformed + " ";
                 }
                 else
                 {
-                    _operationPerformed = button.Text;
+                    OperationPerformed = button.Text;
                     _labelResult = decimal.Parse(textBoxResult.Text);
-                    labelOperations.Text += _labelResult + " " + _operationPerformed + " ";
+                    labelOperations.Text += _labelResult + " " + OperationPerformed + " ";
                     _isOperationPerformed = true;
+                    _firstValueEntered = true;
                 }
             }
-            _lastClick = "operator";
         }
 
         private void ClearClick(object sender, EventArgs e)
@@ -79,57 +87,62 @@ namespace Calculator
             textBoxResult.Text = "0";
             labelOperations.Text = "";
             _labelResult = 0;
+            _secondLabelValue = 0;
+            Counter = 0;
+            _isOperationPerformed = false;
+            _firstValueEntered = false;
         }
 
         private void ClearEntryClick(object sender, EventArgs e)
         {
-            if (textBoxResult.Text == "0")
-            {
-                _labelResult = 0;
-                labelOperations.Text = "";
-            }
-            else
-            {
-                textBoxResult.Text = "0";
-            }
+            _secondLabelValue = 0;
+            textBoxResult.Text = "0";
+            Counter = 0;
         }
 
         private void EqualClicked(object sender, EventArgs e)
         {
-            switch (_operationPerformed)
+            if (Form1.textBoxResult.Text == "Division by zero")
             {
-                case "+":
-                    textBoxResult.Text =
-                        Math.Round(_labelResult + (decimal.Parse(textBoxResult.Text)), 10).ToString(CultureInfo.InvariantCulture);
-                    break;
-                case "-":
-                    textBoxResult.Text =
-                        Math.Round(_labelResult - (decimal.Parse(textBoxResult.Text)), 10).ToString(CultureInfo.InvariantCulture);
-                    break;
-                case "*":
-                    textBoxResult.Text =
-                        Math.Round(_labelResult * (decimal.Parse(textBoxResult.Text)), 10).ToString(CultureInfo.InvariantCulture);
-                    break;
-                case "/":
-                    textBoxResult.Text = decimal.Parse(textBoxResult.Text) == 0m
-                        ? "Division by zero"
-                        : Math.Round(_labelResult / (decimal.Parse(textBoxResult.Text)), 10).ToString(CultureInfo.InvariantCulture);
-                    break;
-                default:
-                    textBoxResult.Text = textBoxResult.Text;
-                    break;
+                return;
             }
 
-            if (textBoxResult.Text != "Division by zero" && _resultShown == false)
+            new CalculateResult().Calculation();
+
+            if (textBoxResult.Text != "Division by zero" && labelOperations.Text.Contains("="))
             {
                 _labelResult = decimal.Parse(textBoxResult.Text);
-                labelOperations.Text += (_secondLabelValue + @" =");
-                _resultShown = true;
-            } else if (textBoxResult.Text != "Division by zero" && _resultShown)
-            {
-                _labelResult = decimal.Parse(textBoxResult.Text);
-                _resultShown = false;
+                switch (OperationPerformed)
+                {
+                    case "+":
+                        labelOperations.Text = (_labelResult - _secondLabelValue + " " + OperationPerformed + " " + _secondLabelValue + @" =");
+                        break;
+                    case "-":
+                        labelOperations.Text = (_labelResult + _secondLabelValue + " " + OperationPerformed + " " + _secondLabelValue + @" =");
+                        break;
+                    case "*":
+                        labelOperations.Text = (_labelResult / _secondLabelValue + " " + OperationPerformed + " " + _secondLabelValue + @" =");
+                        break;
+                    case "/":
+                        labelOperations.Text = (_labelResult * _secondLabelValue + " " + OperationPerformed + " " + _secondLabelValue + @" =");
+                        break;
+                }
             }
+            
+            else if (textBoxResult.Text != "Division by zero")
+            {
+                if (Counter == 0)
+                {
+                    _labelResult = decimal.Parse(textBoxResult.Text);
+                    labelOperations.Text += (_secondLabelValue + @" =");
+                }
+                else
+                {
+                    _labelResult = decimal.Parse(textBoxResult.Text);
+                    labelOperations.Text = (_labelResult - _secondLabelValue + @" =");
+                }
+            }
+            Counter++;
         }
 
         private new void KeyDown(object sender, KeyEventArgs e)
