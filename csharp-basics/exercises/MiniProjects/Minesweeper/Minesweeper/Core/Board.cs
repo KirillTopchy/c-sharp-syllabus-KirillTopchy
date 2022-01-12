@@ -1,9 +1,4 @@
-﻿ 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 
@@ -168,6 +163,40 @@ namespace Minesweeper.Core
                 default:
                     return;
             }
+        }
+
+        public int CountAllBombs()
+        {
+            int bombCount = 0;
+            for (int i = 0; i < this.Cells.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Cells.GetLength(1); j++)
+                {
+                    if (this.Cells[i, j].CellType == CellType.Mine)
+                    {
+                        bombCount++;
+                    }
+                }
+            }
+
+            return bombCount;
+        }
+
+        public int CountAllOpenCells()
+        {
+            int openCellCount = 0;
+            for (int i = 0; i < this.Cells.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Cells.GetLength(1); j++)
+                {
+                    if (this.Cells[i, j].CellState == CellState.Opened)
+                    {
+                        openCellCount++;
+                    }
+                }
+            }
+
+            return openCellCount;
         }
     }
 }

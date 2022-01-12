@@ -40,8 +40,6 @@ namespace Minesweeper.Core
         {
             if (this.CellType != CellType.Flagged)
             {
-                this.BackColor = Color.Gray;
-                this.ForeColor = Color.White;
                 this.Text = "?";
                 if (this.CellType == CellType.Mine)
                 {
@@ -60,9 +58,7 @@ namespace Minesweeper.Core
                 MineCounter.FlaggedMines--;
             }
 
-            this.Text = String.Empty;
-            this.BackColor = DefaultBackColor;
-            this.ForeColor = DefaultForeColor;
+            this.Text = string.Empty;
             this.CellType = CellType.Regular;
             MineCounter.CheckWin();
         }
@@ -72,15 +68,16 @@ namespace Minesweeper.Core
             if (!recursiveCall && this.CellType != CellType.Mine)
             {
                 this.CellState = CellState.Opened;
-                this.BackColor = ColorTranslator.FromHtml("#cccfcf");
+                this.BackColor = Color.LightSlateGray;
                 this.ForeColor = GetCellColour();
+
                 if (NumMines > 0)
                 {
                     this.Text = NumMines.ToString();
                 }
                 else
                 {
-                    this.Text = String.Empty;
+                    this.Text = string.Empty;
                 }
 
                 MineCounter.NotMinesOpened++;
@@ -88,11 +85,10 @@ namespace Minesweeper.Core
                 return;
             }
 
-            this.Text = "M";
+            this.Text = "💣";
             MineCounter.ResetCounter();
-            MessageBox.Show("Game end!");
+            MessageBox.Show("GAME OVER!");
             Application.Restart();
-            Environment.Exit(0);
         }
 
         /// <summary>

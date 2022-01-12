@@ -21,7 +21,7 @@ namespace Minesweeper.Core
                 ResetCounter();
                 MessageBox.Show("Congrats you WIN!");
                 Application.Restart();
-                Environment.Exit(0);
+                //Environment.Exit(0);
             }
         }
 
