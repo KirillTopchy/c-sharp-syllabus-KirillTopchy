@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Minesweeper;
 
 namespace Minesweeper.Core
 {
@@ -17,7 +18,6 @@ namespace Minesweeper.Core
     {
         Opened, Closed
     }
-
     public class Cell : Button
     {
         public int XLoc { get; set; }
@@ -30,7 +30,6 @@ namespace Minesweeper.Core
 
         public void SetupDesign()
         {
-            //this.BackColor = SystemColors.ButtonFace;
             this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
             this.Size = new Size(CellSize, CellSize);
             this.UseVisualStyleBackColor = false;
@@ -39,19 +38,64 @@ namespace Minesweeper.Core
 
         public void OnFlag()
         {
+            if (this.CellType != CellType.Flagged)
+            {
+                this.Text = "?";
+                if (this.CellType == CellType.Mine)
+                {
+                    this.CellType = CellType.FlaggedMine;
+                    MineCounter.FlaggedMines++;
+                    MineCounter.CheckWin();
+                    return;
+                }
 
+                this.CellType = CellType.Flagged;
+                return;
+            }
+
+            if (this.CellType == CellType.FlaggedMine)
+            {
+                MineCounter.FlaggedMines--;
+            }
+
+            this.Text = string.Empty;
+            this.CellType = CellType.Regular;
+            MineCounter.CheckWin();
         }
 
         public void OnClick(bool recursiveCall = false)
         {
+            if (!recursiveCall && this.CellType != CellType.Mine)
+            {
+                this.CellState = CellState.Opened;
+                this.BackColor = Color.LightSlateGray;
+                this.ForeColor = GetCellColour();
 
+                if (NumMines > 0)
+                {
+                    this.Text = NumMines.ToString();
+                }
+                else
+                {
+                    this.Text = string.Empty;
+                }
+
+                MineCounter.NotMinesOpened++;
+                MineCounter.CheckWin();
+                return;
+            }
+
+            this.Text = "💣";
+            MineCounter.ResetCounter();
+            MessageBox.Show("GAME OVER!");
+            Application.Restart();
         }
 
         /// <summary>
         /// Return the colour code associated with the number of surrounding mines
         /// </summary>
         /// <returns></returns>
-        private Color GetCellColour()
+        public Color GetCellColour()
         {
             switch (this.NumMines)
             {

@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=28c00e51_002D519c_002D42a5_002D9829_002Dc50824379545/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BoardTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::F1ED4624-B083-4456-8717-CA25ABE14B9C::.NETFramework,Version=v4.7.2::Minesweeper.Tests.BoardTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8d0b5d3b_002Dc3b9_002D4fdf_002Dad10_002D75772d462625/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SetupBoard_FiveFiveZeroBoard_ShouldIncrementCellsCount" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::F1ED4624-B083-4456-8717-CA25ABE14B9C::.NETFramework,Version=v4.7.2::Minesweeper.Tests.BoardTests.SetupBoard_FiveFiveZeroBoard_ShouldIncrementCellsCount&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e6dc2e43_002Df60c_002D4262_002Da464_002Da0fe5753e87b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BoardTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::F1ED4624-B083-4456-8717-CA25ABE14B9C::.NETFramework,Version=v4.7.2::Minesweeper.Tests.BoardTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
