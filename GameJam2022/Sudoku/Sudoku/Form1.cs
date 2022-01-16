@@ -7,30 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sudoku.Core;
 
 namespace Sudoku
 {
-    public partial class Form1 : Form
+    public partial class Sudoku : Form
     {
         public int count = 1;
 
         public bool isClicked;
 
-        public Form1()
+        public Sudoku()
         {
             InitializeComponent();
         }
 
+
         private void ButtonClick(object sender, EventArgs e)
         {
-            var button = sender as Button;
+            var button = sender as Cell;
+            
 
             if (isClicked == false)
             {
 
                 if (count != 10)
                 {
-                    button.Text = count.ToString();
+                    if (button != null) button.Text = count.ToString();
                     count++;
                     return;
                 }

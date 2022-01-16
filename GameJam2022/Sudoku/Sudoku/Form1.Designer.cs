@@ -1,7 +1,7 @@
 ﻿
 namespace Sudoku
 {
-    partial class Form1
+    partial class Sudoku
     {
         /// <summary>
         ///  Required designer variable.
@@ -1067,13 +1067,13 @@ namespace Sudoku
             this.panel1.Size = new System.Drawing.Size(270, 270);
             this.panel1.TabIndex = 1;
             // 
-            // Form1
+            // Sudoku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 378);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "Sudoku";
             this.Text = "Sudoku";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
