@@ -20,70 +20,34 @@ namespace Sudoku
         public Sudoku()
         {
             InitializeComponent();
-
-            var board = new Board(this, 9, 9);
-            board.SetupBoard();
-
-            //var menu = new Menu
         }
 
-        
 
-        private void ButtonClick(object sender, EventArgs e)
+        private void DifficultyButtonClick(object sender, EventArgs e)
         {
-            var button = sender as Cell;
-            
+            var button = sender as Button;
 
-            if (isClicked == false)
+            switch (button.Text)
             {
-
-                if (count != 10)
-                {
-                    if (button != null) button.Text = count.ToString();
-                    count++;
-                    return;
-                }
-
-                if (count == 10)
-                {
-                    count = 1;
-                }
+                case "Easy":
+                    {
+                        var board = new Board(this, 9, 9, 50);
+                        board.SetupBoard();
+                        break;
+                    }
+                case "Medium":
+                    {
+                        var board = new Board(this, 9, 9, 40);
+                        board.SetupBoard();
+                        break;
+                    }
+                case "Hard":
+                    {
+                        var board = new Board(this, 9, 9, 30);
+                        board.SetupBoard();
+                        break;
+                    }
             }
-            else
-            {
-                var localCounter = int.Parse(button.Text);
-                if (button.Text != "10")
-                {
-                    button.Text = localCounter.ToString();
-                    localCounter++;
-                }
-
-                if (localCounter == 10)
-                {
-                    localCounter = 1;
-                }
-            }
-
-            if(count != 10)
-            {
-                button.Text = count.ToString();
-                count++;
-            }
-
-            if (count == 10)
-            {
-                count = 1;
-            }
-        }
-
-        public bool isClicke()
-        {
-            return true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

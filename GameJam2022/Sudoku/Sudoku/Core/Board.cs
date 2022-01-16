@@ -15,16 +15,30 @@ namespace Sudoku.Core
 
         public int Height { get; set; }
 
+        public int CellsOpened { get; set; }
+
         public Cell[,] Cells { get; set; }
 
-        public Board(Sudoku sudoku, int width, int height)
+        public Board(Sudoku sudoku, int width, int height, int cellsOpened)
         {
             Sudoku = sudoku;
             Sudoku.AutoSize = true;
             Width = width;
             Height = height;
+            CellsOpened = cellsOpened;
             Cells = new Cell[width, height];
         }
+
+        //public Board(MenuButtons sudoku, int width, int height, int cellsOpened)
+        //{
+        //    Sudoku = sudoku;
+        //    Sudoku.AutoSize = true;
+        //    Width = width;
+        //    Height = height;
+        //    CellsOpened = cellsOpened;
+        //    Cells = new Cell[width, height];
+        //}
+
 
         public void SetupBoard()
         {
