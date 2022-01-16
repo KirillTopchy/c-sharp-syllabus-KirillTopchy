@@ -20,8 +20,14 @@ namespace Sudoku
         public Sudoku()
         {
             InitializeComponent();
+
+            var board = new Board(this, 9, 9);
+            board.SetupBoard();
+
+            //var menu = new Menu
         }
 
+        
 
         private void ButtonClick(object sender, EventArgs e)
         {

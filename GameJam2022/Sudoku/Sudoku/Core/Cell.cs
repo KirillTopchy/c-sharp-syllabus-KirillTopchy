@@ -18,7 +18,7 @@ namespace Sudoku.Core
         Locked, Unlocked
     }
 
-    class Cell : Button
+    public class Cell : Button
     {
         public int XLoc { get; set; }
 
@@ -39,7 +39,5 @@ namespace Sudoku.Core
             Size = new Size(CellSize, CellSize);
             //UseVisualStyleBackColor = false;
         }
-
-
     }
 }

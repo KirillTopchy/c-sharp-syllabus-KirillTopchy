@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sudoku.Core
 {
-    class Board
+    public class Board
     {
         public Sudoku Sudoku { get; set; }
 
@@ -19,6 +20,7 @@ namespace Sudoku.Core
         public Board(Sudoku sudoku, int width, int height)
         {
             Sudoku = sudoku;
+            Sudoku.AutoSize = true;
             Width = width;
             Height = height;
             Cells = new Cell[width, height];
@@ -36,9 +38,19 @@ namespace Sudoku.Core
                         YLoc = i,
                         CellState = CellState.Unchanged,
                         CellType = CellType.Locked,
-                        CellSize = 30,
+                        CellSize = 50,
                         Board = this
                     };
+
+                    if (CheckIfCellColorShouldBeChanged(i, j))
+                    {
+                        ChangeCellColor(cell);
+                    }
+                    else
+                    {
+                        cell.BackColor = Color.Beige;
+                    }
+
                     cell.SetupDesign();
                     Cells[i, j] = cell;
                     Sudoku.Controls.Add(cell);
@@ -46,6 +58,31 @@ namespace Sudoku.Core
             }
         }
 
+        public void ChangeCellColor(Cell cell)
+        {
+            cell.BackColor = Color.Aqua;
+        }
 
+        public bool CheckIfCellColorShouldBeChanged(int i, int j)
+        {
+            switch (i)
+            {
+                case 0 when j is > 2 and < 6:
+                case 1 when j is > 2 and < 6:
+                case 2 when j is > 2 and < 6:
+                case 3 when j is >= 0 and < 3:
+                case 3 when j is > 5 and < 9:
+                case 4 when j is >= 0 and < 3:
+                case 4 when j is > 5 and < 9:
+                case 5 when j is >= 0 and < 3:
+                case 5 when j is > 5 and < 9:
+                case 6 when j is > 2 and < 6:
+                case 7 when j is > 2 and < 6:
+                case 8 when j is > 2 and < 6:
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
