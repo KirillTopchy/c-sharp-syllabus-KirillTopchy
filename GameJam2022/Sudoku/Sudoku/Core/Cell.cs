@@ -8,11 +8,6 @@ using System.Windows.Forms;
 
 namespace Sudoku.Core
 {
-    public enum CellState
-    {
-        Changed, Unchanged
-    }
-
     public enum CellType
     {
         Locked, Unlocked
@@ -26,18 +21,26 @@ namespace Sudoku.Core
 
         public int CellSize { get; set; }
 
-        public CellState CellState { get; set; }
-
         public CellType CellType { get; set; }
 
-        public Board Board { get; set; }
+        public int CellValue { get; set; }
+
+        //public Board Board { get; set; }
 
 
         public void SetupDesign()
         {
             Location = new Point(XLoc * CellSize, YLoc * CellSize);
             Size = new Size(CellSize, CellSize);
-            //UseVisualStyleBackColor = false;
+            FlatStyle = FlatStyle.Flat;
+            FlatAppearance.BorderColor = Color.Black;
+            Font = new Font(SystemFonts.DefaultFont.FontFamily, 15);
+        }
+
+        public void Clear()
+        {
+            Text = string.Empty;
+            CellType = CellType.Locked;
         }
     }
 }

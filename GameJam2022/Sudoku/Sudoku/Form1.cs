@@ -13,10 +13,6 @@ namespace Sudoku
 {
     public partial class Sudoku : Form
     {
-        public int count = 1;
-
-        public bool isClicked;
-
         public Sudoku()
         {
             InitializeComponent();
@@ -33,6 +29,7 @@ namespace Sudoku
                     {
                         var board = new Board(this, 9, 9, 50);
                         board.SetupBoard();
+                        board.GenerateValues();
                         break;
                     }
                 case "Medium":
