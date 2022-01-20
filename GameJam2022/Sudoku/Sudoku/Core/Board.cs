@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Sudoku.Core
 {
@@ -16,39 +18,30 @@ namespace Sudoku.Core
 
         public int Height { get; set; }
 
-        public int CellsOpened { get; set; }
-
         public Cell[,] Cells { get; set; }
 
-        public Random Random = new Random();
+        public Random Random = new();
 
-        public int TempValue;
+        public int IMin;
+        public int IMax;
+        public int JMin;
+        public int JMax;
 
-        public int TempXLoc;
-
-        public int TempYLoc;
-
-
-        public Board(Sudoku sudoku, int width, int height, int cellsOpened)
+        public Board(Sudoku sudoku, int width, int height)
         {
             Sudoku = sudoku;
             Sudoku.AutoSize = true;
             Width = width;
             Height = height;
-            CellsOpened = cellsOpened;
             Cells = new Cell[width, height];
         }
 
-        //public Board(MenuButtons sudoku, int width, int height, int cellsOpened)
-        //{
-        //    Sudoku = sudoku;
-        //    Sudoku.AutoSize = true;
-        //    Width = width;
-        //    Height = height;
-        //    CellsOpened = cellsOpened;
-        //    Cells = new Cell[width, height];
-        //}
+        public Board()
+        {
 
+        }
+
+        // Sets up Sudoku board.
         public void SetupBoard()
         {
             for (int i = 0; i < Height; i++)
@@ -80,12 +73,7 @@ namespace Sudoku.Core
             }
         }
 
-        public void ChangeCellColor(Cell cell)
-        {
-            cell.BackColor = Color.Aqua;
-        }
-
-        // Change cell color based on its position.
+        // Checks if cell color should be changed according to cells position.
         public bool CheckIfCellColorShouldBeChanged(int i, int j)
         {
             switch (i)
@@ -108,21 +96,27 @@ namespace Sudoku.Core
             return false;
         }
 
+        // Changes cells color.
+        public void ChangeCellColor(Cell cell)
+        {
+            cell.BackColor = Color.Aqua;
+        }
+
         // Allows to enter numbers 1-9 in cell.
-        private void CellKeyPressed(object sender, KeyPressEventArgs e)
+        public void CellKeyPressed(object sender, KeyPressEventArgs e)
         {
             var cell = sender as Cell;
 
-            // Do nothing if the cell is locked
+            // Do nothing if the cell is locked.
             if (cell.CellType == CellType.Locked)
             {
                 return;
             }
 
-            // Add the pressed key value in the cell only if it is a number
+            // Add the pressed key value in the cell only if it is a number.
             if (int.TryParse(e.KeyChar.ToString(), out var value))
             {
-                // Clear the cell value if pressed key is zero
+                // Clear the cell value if pressed key is zero.
                 if (value == 0)
                 {
                     cell.Clear();
@@ -135,6 +129,7 @@ namespace Sudoku.Core
             }
         }
 
+        // Generates random numbers and fills them in cells.
         public void GenerateValues()
         {
             // Clear the values in each cells
@@ -148,11 +143,11 @@ namespace Sudoku.Core
             FindValueForAllCells(0, -1);
         }
 
-        private bool FindValueForAllCells(int x, int y)
+        // Find values for cells.
+        public bool FindValueForAllCells(int x, int y)
         {
-            // Increment the X and Y values to move to the next cell
-            // if the columns ends move to the next row
-
+            // Increment the x and y values to move to the next cell.
+            // If the columns ends move to the next row.
             if (++y > 8)
             {
                 y = 0;
@@ -167,48 +162,45 @@ namespace Sudoku.Core
             int value;
             var possibleNumbers = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
+            // Sudoku generation timer.
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             // Find a random and valid number for the cell and go to the next cell 
-            // and check if it can be allocated with another random and valid number
-
+            // and check if it can be allocated with another random and valid number.
             do
             {
                 // If there is not numbers left in the list to try next, 
-                // return to the previous cell and allocate it with a different number
+                // return to the previous cell and allocate it with a different number.
                 if (possibleNumbers.Count < 1)
                 {
                     Cells[x, y].CellValue = 0;
                     return false;
                 }
 
-                // Take a random number from the numbers left in the list
+                // Take a random number from the numbers left in the list.
                 value = possibleNumbers[Random.Next(0, possibleNumbers.Count)];
                 Cells[x, y].CellValue = value;
-
-
-                //TempValue = value;
-                //TempXLoc = x;
-                //TempYLoc = y;
 
                 // Remove the used value from list
                 possibleNumbers.Remove(value);
             } while (!CheckValidNumber(value, x, y)|| !FindValueForAllCells(x, y));
+            stopwatch.Stop();
+            
+            Sudoku.label1.Text = $@"Sudoku Generation Time = {stopwatch.ElapsedMilliseconds} ms";
 
-            // Remove this line after testing
-            Cells[x, y].Text = value.ToString();
+            // Sudoku value and cells position tests.
+            //Cells[x, y].Text = value.ToString();
             //Cells[x, y].Text = $"{x},{y}";
             return true;
         }
 
-        // Checks if randomly generated number can be used.
-        private bool CheckValidNumber(int value, int x, int y)
+        // Checks if randomly generated number is valid and can be used.
+        public bool CheckValidNumber(int value, int x, int y)
         {
-            //return CheckRow(TempValue, TempXLoc, TempYLoc) && CheckColumn(TempValue, TempXLoc, TempYLoc) 
-            // && CheckBlock(TempValue, TempXLoc, TempYLoc);
-
             // Check cells in row.
             for (int i = 0; i < 9; i++)
             {
-                if (i != y && Cells[i, y].CellValue == value)
+                if (i != x && Cells[i, y].CellValue == value)
                 {
                     return false;
                 }
@@ -217,129 +209,34 @@ namespace Sudoku.Core
             // Check cells in column.
             for (int i = 0; i < 9; i++)
             {
-                if (i != x && Cells[x, i].CellValue == value)
+                if (i != y && Cells[x, i].CellValue == value)
                 {
                     return false;
                 }
             }
 
-            // Check cells in a block
-            var blockNumber = FindBlock(x, y);
+            // Find the block where particular cell is located.
+            FindBlock(x, y);
 
-            if (blockNumber == 0)
+            //Check all cells in a block
+            if (!CheckCell(value, x, y))
             {
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
+                return false;
             }
-            else if (blockNumber == 1)
+
+            return true;
+        }
+
+        //Check all cells in a block
+        public bool CheckCell(int value, int x, int y)
+        {
+            for (int i = IMin; i < IMax; i++)
             {
-                for (int i = 3; i < 6; i++)
+                for (int j = JMin; j < JMax; j++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    if (i != x && j != y && Cells[i, j].CellValue == value)
                     {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 2)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 3)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 4)
-            {
-                for (int i = 3; i < 6; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 5)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 6)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 7)
-            {
-                for (int i = 3; i < 6; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 8)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
+                        return false;
                     }
                 }
             }
@@ -347,177 +244,104 @@ namespace Sudoku.Core
             return true;
         }
 
-        private bool CheckRow(int value, int x, int y)
+        // Sets i,j min and max values used in CheckCell method, depending on cells position (in which block it is located).
+        public void FindBlock(int x, int y)
         {
-            // Check cells in row.
-            for (int i = 0; i < 9; i++)
+            switch (x)
             {
-                if (i != y && Cells[i, y].CellValue == value)
-                {
-                    return false;
-                }
+                case < 3 when y < 3:
+                    IMin = 0;
+                    IMax = 3;
+                    JMin = 0;
+                    JMax = 3;
+                    break;
+                case < 6 when y < 3:
+                    IMin = 3;
+                    IMax = 6;
+                    JMin = 0;
+                    JMax = 3;
+                    break;
+                case < 9 when y < 3:
+                    IMin = 6;
+                    IMax = 9;
+                    JMin = 0;
+                    JMax = 3;
+                    break;
+                case < 3 when y < 6:
+                    IMin = 0;
+                    IMax = 3;
+                    JMin = 3;
+                    JMax = 6;
+                    break;
+                case < 6 when y < 6:
+                    IMin = 3;
+                    IMax = 6;
+                    JMin = 3;
+                    JMax = 6;
+                    break;
+                case < 9 when y < 6:
+                    IMin = 6;
+                    IMax = 9;
+                    JMin = 3;
+                    JMax = 6;
+                    break;
+                case < 3 when y < 9:
+                    IMin = 0;
+                    IMax = 3;
+                    JMin = 6;
+                    JMax = 9;
+                    break;
+                case < 6 when y < 9:
+                    IMin = 3;
+                    IMax = 6;
+                    JMin = 6;
+                    JMax = 9;
+                    break;
+                case < 9 when y < 9:
+                    IMin = 6;
+                    IMax = 9;
+                    JMin = 6;
+                    JMax = 9;
+                    break;
             }
-
-            return true;
         }
 
-        private bool CheckColumn(int value, int x, int y)
+        // Displays starting cells values to user.
+        public void ShowHints(int hintsNumber)
         {
-            // Check cells in column.
-            for (int i = 0; i < 9; i++)
+            var hintsPlaced = 0;
+
+            while (hintsPlaced != hintsNumber)
             {
-                if (i != x && Cells[x, i].CellValue == value)
+                var x = Random.Next(1, 9);
+                var y = Random.Next(1, 9);
+                if (Cells[x, y].CellType == CellType.Unlocked)
                 {
-                    return false;
+                    Cells[x, y].CellType = CellType.Locked;
+                    Cells[x, y].ForeColor = Color.DarkViolet;
+                    hintsPlaced++;
                 }
             }
 
-            return true;
+            foreach (var cell in Cells)
+            {
+                if (cell.CellType == CellType.Locked)
+                {
+                    cell.Text = cell.CellValue.ToString();
+                }
+            }
         }
 
-        private bool CheckBlock(int value, int x, int y)
+        public void ClearCells()
         {
-            // Check cells in a block
-            var blockNumber = FindBlock(x, y);
-
-            if (blockNumber == 0)
+            foreach (var cell in Cells)
             {
-                for (int i = 0; i < 3; i++)
+                // Clear the cell only if it is not locked
+                if (cell.CellType == CellType.Unlocked)
                 {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
+                    cell.Clear();
                 }
             }
-            else if (blockNumber == 1)
-            {
-                for (int i = 3; i < 6; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 2)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 3)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 4)
-            {
-                for (int i = 3; i < 6; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 5)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 3; j < 6; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 6)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 7)
-            {
-                for (int i = 3; i < 6; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else if (blockNumber == 8)
-            {
-                for (int i = 6; i < 9; i++)
-                {
-                    for (int j = 6; j < 9; j++)
-                    {
-                        if (Cells[i, j].CellValue == value)
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            return true;
-        }
-
-        private int FindBlock(int x, int y)
-        {
-            var block = x switch
-            {
-                < 3 when y < 3 => 0,
-                < 6 when y < 3 => 1,
-                < 9 when y < 3 => 2,
-                < 3 when y < 6 => 3,
-                < 6 when y < 6 => 4,
-                < 9 when y < 6 => 5,
-                < 3 when y < 9 => 6,
-                < 6 when y < 9 => 7,
-                < 9 when y < 9 => 8,
-                _ => 0
-            };
-
-            return block;
         }
     }
 }

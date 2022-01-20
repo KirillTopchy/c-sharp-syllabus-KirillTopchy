@@ -4,9 +4,6 @@
     <Compile Update="Core\Cell.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Core\MenuButtons.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

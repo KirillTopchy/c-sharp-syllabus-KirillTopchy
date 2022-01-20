@@ -25,9 +25,7 @@ namespace Sudoku.Core
 
         public int CellValue { get; set; }
 
-        //public Board Board { get; set; }
-
-
+        // Cell design.
         public void SetupDesign()
         {
             Location = new Point(XLoc * CellSize, YLoc * CellSize);
@@ -37,10 +35,11 @@ namespace Sudoku.Core
             Font = new Font(SystemFonts.DefaultFont.FontFamily, 15);
         }
 
+        // Clear cell value.
         public void Clear()
         {
             Text = string.Empty;
-            CellType = CellType.Locked;
+            CellType = CellType.Unlocked;
         }
     }
 }
