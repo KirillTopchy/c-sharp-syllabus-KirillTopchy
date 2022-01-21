@@ -1,7 +1,4 @@
-﻿
-using Sudoku.Core;
-
-namespace Sudoku
+﻿namespace Sudoku
 {
     partial class Sudoku
     {
@@ -72,7 +69,7 @@ namespace Sudoku
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 452);
+            this.label1.Location = new System.Drawing.Point(467, 453);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 3;
@@ -85,7 +82,7 @@ namespace Sudoku
             this.checkResultButton.TabIndex = 4;
             this.checkResultButton.Text = "Check Result";
             this.checkResultButton.UseVisualStyleBackColor = true;
-            this.checkResultButton.Click += new System.EventHandler(this.DifficultyButtonClick);
+            this.checkResultButton.Click += new System.EventHandler(this.CheckResultButtonClick);
             // 
             // clearButton
             // 

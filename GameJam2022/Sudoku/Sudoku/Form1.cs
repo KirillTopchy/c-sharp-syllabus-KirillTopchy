@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sudoku.Core;
 
@@ -18,28 +11,22 @@ namespace Sudoku
         {
             InitializeComponent();
             _board = new Board(this, 9, 9);
+            _board.SetupBoard();
         }
 
         private void DifficultyButtonClick(object sender, EventArgs e)
         {
             var button = sender as Button;
-            //var board = new Board(this, 9, 9);
-
+            _board.StartNewGame();
             switch (button.Text)
             {
                 case "Easy":
-                    _board.SetupBoard();
-                    _board.GenerateValues();
                     _board.ShowHints(45);
                     break;
                 case "Medium":
-                    _board.SetupBoard();
-                    _board.GenerateValues();
                     _board.ShowHints(35);
                     break;
                 case "Hard":
-                    _board.SetupBoard();
-                    _board.GenerateValues();
                     _board.ShowHints(25);
                     break;
             }
@@ -48,6 +35,11 @@ namespace Sudoku
         private void ClearButtonClick(object sender, EventArgs e)
         {
             _board.ClearCells();
+        }
+
+        private void CheckResultButtonClick(object sender, EventArgs e)
+        {
+            _board.CheckResult();
         }
     }
 }

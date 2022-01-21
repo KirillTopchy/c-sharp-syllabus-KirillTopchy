@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -34,11 +31,6 @@ namespace Sudoku.Core
             Width = width;
             Height = height;
             Cells = new Cell[width, height];
-        }
-
-        public Board()
-        {
-
         }
 
         // Sets up Sudoku board.
@@ -139,8 +131,15 @@ namespace Sudoku.Core
                 cell.Clear();
             }
 
+            // Sudoku generation timer.
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             // Recursive method call until suitable values found for each cells
             FindValueForAllCells(0, -1);
+
+            stopwatch.Stop();
+            Sudoku.label1.Text = $@"Sudoku Generation Time = {stopwatch.Elapsed}";
         }
 
         // Find values for cells.
@@ -162,9 +161,7 @@ namespace Sudoku.Core
             int value;
             var possibleNumbers = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-            // Sudoku generation timer.
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+      
             // Find a random and valid number for the cell and go to the next cell 
             // and check if it can be allocated with another random and valid number.
             do
@@ -184,9 +181,7 @@ namespace Sudoku.Core
                 // Remove the used value from list
                 possibleNumbers.Remove(value);
             } while (!CheckValidNumber(value, x, y)|| !FindValueForAllCells(x, y));
-            stopwatch.Stop();
             
-            Sudoku.label1.Text = $@"Sudoku Generation Time = {stopwatch.ElapsedMilliseconds} ms";
 
             // Sudoku value and cells position tests.
             //Cells[x, y].Text = value.ToString();
@@ -313,8 +308,8 @@ namespace Sudoku.Core
 
             while (hintsPlaced != hintsNumber)
             {
-                var x = Random.Next(1, 9);
-                var y = Random.Next(1, 9);
+                var x = Random.Next(0, 9);
+                var y = Random.Next(0, 9);
                 if (Cells[x, y].CellType == CellType.Unlocked)
                 {
                     Cells[x, y].CellType = CellType.Locked;
@@ -332,6 +327,7 @@ namespace Sudoku.Core
             }
         }
 
+        // Clears all players entered values from board.
         public void ClearCells()
         {
             foreach (var cell in Cells)
@@ -342,6 +338,36 @@ namespace Sudoku.Core
                     cell.Clear();
                 }
             }
+        }
+
+        // Check if player entered values are equal to cell value, if ton changes text color.
+        public void CheckResult()
+        {
+            if (CheckWin())
+            {
+                
+                MessageBox.Show(@"YOU WIN!!!", @"Congrats!!!");
+            }
+
+            foreach (var cell in Cells)
+            {
+                if (cell.CellValue.ToString() != cell.Text)
+                {
+                    cell.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        // Checks if player has won the game.
+        public bool CheckWin()
+        {
+            return Cells.Cast<Cell>().All(cell => cell.CellValue.ToString() == cell.Text);
+        }
+
+        // Starts new game.
+        public void StartNewGame()
+        {
+            GenerateValues();
         }
     }
 }
